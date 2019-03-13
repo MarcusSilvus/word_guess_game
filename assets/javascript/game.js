@@ -4,7 +4,8 @@ var asia = ["China", "India", "Indonesia", "Pakistan", "Bangladesh", "Japan", "P
 var winCount = document.getElementById("wins");
 var lossCount = document.getElementById("losses");
 var wrongLetterBank = document.getElementById("guessed"); 
-var newWord = document.getElementById("word")
+var newWord = document.getElementById("word");
+var guessLeft = document.getElementById("guessesRemaining");
 
 
 
@@ -18,30 +19,57 @@ var wrongGuesses = [];
 var randomCountry = '';
 
 
+randomCountry = asia[Math.floor(Math.random() * asia.length)];
+console.log(randomCountry);
+
+for (var i = 0; i < randomCountry.length; i++) {
+    if (randomCountry[i] === ' ')  {
+        underScores.push(' ');
+    } else {
+        underScores.push('_');
+    }
+    console.log(underScores);
+}
+
+document.onkeyup = function (guess) {
+    //when user presses a key, that key is checked against the value of the 
+    //randomCountry array
+    var userGuess = guess.key;
+    console.log(userGuess);
+
+    for (var j = 0; j < randomCountry.length; j++) {
+        if (userGuess === randomCountry) {
+            
+        }
+        
+    }
+
+    //if the value is in the array, it is revealed in the appropriate spot
+
+    //else, guesses remaining are deducted 
+}
+
+
+
 // Start game when button is pressed
 function newGame() {
     // reset varibles
     guessesRemaining = 6;
     wrongGuesses = [];
-    underScores = [];
+    secretWord = [];
 
     // randomly select a word from the asia array
     randomCountry = asia[Math.floor(Math.random() * asia.length)];
     console.log(randomCountry);
 
     // show underscores for randomly selected word
-    for (var i = 0; i < randomCountry.length; i++) {
-        if (randomCountry[i] === ' ') {
-            underScores.push(' ');
-        } else {
-            underScores.push('_');
-        }
-    }
-    
+  
+
 }
 
 winCount.textContent = wins;
 lossCount.textContent = losses;
 wrongLetterBank.textContent = wrongGuesses;
-newWord.textContent = randomCountry;
+newWord.textContent = underScores.join('');
+guessLeft.textContent = guessesRemaining;
 

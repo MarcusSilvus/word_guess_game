@@ -40,3 +40,9 @@ button {
     background-color: lightskyblue;
     /* text-align: center; */
 }
+
+#word {
+    /* font-size: 40px; */
+    letter-spacing: 5px;
+    /* font-family: 'Just Another Hand', cursive; */
+}
