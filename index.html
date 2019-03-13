@@ -1,18 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mark's Hangman Game</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Aclonica|Yeseva+One" rel="stylesheet">
+
+
 </head>
+
 <body>
-    <h1>Hangman</h1>
-    <h2>Countries of Asia</h2>
-    
-    <p id="guessed">Letters guessed so far</p>
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="jumbotron">
+                    <h1 class="title">Hangman</h1>
+                    <p class="lead">Countries of Asia</p>
+                    <div class="text-center">
+                        <button type="button" id="newGameButton" class="btn btn-primary btn-sm">Start Game</button>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+
+        <!-- Row 1 - where letters are revealed -->
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-1 row1"></div>
+            <div class="col-md-6 row1">
+                <p>What country am I?</p>
+                <p><span id="word"></span></p>
+            </div>
+            <div class="col-md-1 row1">
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <!-- Row 2 - for previous letters guessed and remaining guesses -->
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 row2">
+                <p>Letters guessed so far:</p>
+                <p><span id="guessed"></span></p>
+            </div>
+            <div class="col-md-2 row2"></div>
+            <div class="col-md-2 row2">
+                <p> Guesses remaining:</p>
+                <p><span id="guessesRemaining"></span></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <!-- Row 3 - to display wins and losses -->
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2 row3"></div>
+            <div class="col-md-2 row3">
+                <p>Wins: <span id="wins"></span></p>
+            </div>
+            <div class="col-md-1 row3"></div>
+            <div class="col-md-2 row3">
+                <p>Losses: <span id="losses"></span></p>
+            </div>
+            <div class="col-md-1 row3"></div>
+            <div class="col-md-2"></div>
+        </div>
+
+
+
+    </div>
+
+
 
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
+
 </html>

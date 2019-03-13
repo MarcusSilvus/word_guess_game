@@ -1,0 +1,42 @@
+
+
+.jumbotron {
+    background-image: url(../images/background.jpg);
+}
+
+
+.title {
+    text-align: center;
+    font-family: 'Yeseva One', cursive;
+    font-size: 74px;
+    color: crimson;
+    -webkit-text-stroke: 1px black;
+
+}
+
+.lead {
+    text-align: center;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 36px;
+    color: tomato;
+    -webkit-text-stroke: 1px black;
+}
+
+button {
+    margin: auto;
+}
+
+.row1  {
+ background-color: lightblue;
+ text-align: center;
+}
+
+.row2 {
+    background-color: lightgray;
+    /* text-align: center; */
+}
+
+.row3 {
+    background-color: lightskyblue;
+    /* text-align: center; */
+}
