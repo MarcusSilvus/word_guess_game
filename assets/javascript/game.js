@@ -3,9 +3,10 @@ var asia = ["China", "India", "Indonesia", "Pakistan", "Bangladesh", "Japan", "P
 
 var winCount = document.getElementById("wins");
 var lossCount = document.getElementById("losses");
-var wrongLetterBank = document.getElementById("guessed"); 
+var wrongLetterBank = document.getElementById("guessed");
 var newWord = document.getElementById("word");
 var guessLeft = document.getElementById("guessesRemaining");
+
 
 
 
@@ -13,9 +14,9 @@ var guessLeft = document.getElementById("guessesRemaining");
 var wins = 0;
 var losses = 0;
 var guessesRemaining = 6;
-var secretWord = [];
 var underScores = [];
 var wrongGuesses = [];
+var correctGuess = [];
 var randomCountry = '';
 
 
@@ -23,7 +24,7 @@ randomCountry = asia[Math.floor(Math.random() * asia.length)];
 console.log(randomCountry);
 
 for (var i = 0; i < randomCountry.length; i++) {
-    if (randomCountry[i] === ' ')  {
+    if (randomCountry[i] === ' ') {
         underScores.push(' ');
     } else {
         underScores.push('_');
@@ -32,21 +33,43 @@ for (var i = 0; i < randomCountry.length; i++) {
 }
 
 document.onkeyup = function (guess) {
+
     //when user presses a key, that key is checked against the value of the 
     //randomCountry array
     var userGuess = guess.key;
     console.log(userGuess);
 
-    for (var j = 0; j < randomCountry.length; j++) {
-        if (userGuess === randomCountry) {
-            
-        }
-        
+    //loop that cycles through the array
+    for (var i = 0; i < randomCountry.length; i++) {
+        if (userGuess === randomCountry[i]) {
+            underScores[i] = userGuess;
+            console.log(underScores);
+        } 
+    }
+    //NOT WORKING - want this to log the incorrect letters in the word bank and not the correct letters
+    // if (userGuess !== randomCountry[i]) {
+        wrongGuesses.push(userGuess);
+        guessesRemaining--;
+    // }
+
+    //logs wins
+    if (underScores.join('') === randomCountry) {
+        wins++;
+        console.log("YOU WIN");
+    }
+    //logs losses
+    if (guessesRemaining <= 0) {
+        losses++;
+        console.log("YOU LOSE");
     }
 
+    guessLeft.textContent = guessesRemaining;
     //if the value is in the array, it is revealed in the appropriate spot
+    word.textContent = underScores.join('');
+    wrongLetterBank.textContent = wrongGuesses.join('  ');
+    lossCount.textContent = losses;
+    winCount.textContent = wins;
 
-    //else, guesses remaining are deducted 
 }
 
 
@@ -63,7 +86,7 @@ function newGame() {
     console.log(randomCountry);
 
     // show underscores for randomly selected word
-  
+
 
 }
 
